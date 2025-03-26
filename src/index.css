@@ -16,7 +16,7 @@
   }
 
   .bg-side {
-    @apply bg-[#854836];
+    @apply bg-[#df4415];
   }
 
   .font-base {
@@ -28,6 +28,61 @@
   }
 
   .text-base {
-    @apply text-[#000000]
+    @apply text-[#000000];
+  }
+
+  .text-org {
+    @apply text-[#FFB22C];
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex  items-center justify-center;
+  }
+
+  .flex-col {
+    @apply flex flex-col;
+  }
+
+  .flex-between {
+    @apply flex  items-center justify-between;
+  }
+
+  .flex-only {
+    @apply flex items-center;
+  }
+
+  .bg-red {
+    @apply bg-red-500;
+  }
+  .bg-blue {
+    @apply bg-blue-500;
+  }
+
+  .text-super {
+    @apply text-7xl font-[900] text-[#FFB22C];
+  }
+
+  .text-max {
+    @apply text-2xl font-[800];
+  }
+}
+
+@layer components {
+  .authLayout {
+    @apply h-dvh w-full relative p-5 sm:p-12;
+  }
+
+  .dropdown {
+    @apply h-[12rem] w-[13rem] max-w-[20rem] absolute top-16  right-3.5 rounded-xl p-4 bg-[#282626];
+  }
+
+  .sidebar {
+    @apply absolute h-full w-45 md:w-full bg-[#282626] z-10 ;
+  }
+
+  .grid-layout {
+    @apply grid grid-cols-5 grid-rows-5 gap-4;
   }
 }
