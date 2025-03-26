@@ -7,7 +7,7 @@
     @apply bg-[#000000];
   }
 
-  .bg-orange {
+  .bg-org {
     @apply bg-[#FFB22C];
   }
 
@@ -20,6 +20,14 @@
   }
 
   .font-base {
-    @apply font-["Winky Sans"];
+    font-family: "Winky Sans", sans-serif;
+  }
+
+  .text-secondary {
+    @apply text-[#F7F7F7];
+  }
+
+  .text-base {
+    @apply text-[#000000]
   }
 }
