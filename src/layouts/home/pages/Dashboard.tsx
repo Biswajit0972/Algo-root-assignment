@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 import Navbar from "../../../components/Navbar";
 import Mobile from "../../../components/Mobile";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const Dashboard = () => {
   return (
@@ -14,6 +15,19 @@ const Dashboard = () => {
       <div className=" relative col-span-4 row-span-12 row-start-2 ">
         <Outlet />
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 };
