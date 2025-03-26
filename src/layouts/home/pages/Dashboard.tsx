@@ -1,5 +1,4 @@
 import { Outlet } from "react-router";
-import Dropdown from "../../../components/Dropdown";
 import Navbar from "../../../components/Navbar";
 import Mobile from "../../../components/Mobile";
 
