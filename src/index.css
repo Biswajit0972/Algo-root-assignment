@@ -75,7 +75,7 @@
   }
 
   .dropdown {
-    @apply h-[12rem] w-[13rem] max-w-[20rem] absolute top-16  right-3.5 rounded-xl p-4 bg-[#282626];
+    @apply h-[12rem] w-[13rem] max-w-[20rem] absolute top-1  right-3.5 rounded-xl p-4 bg-[#282626] z-10;
   }
 
   .sidebar {

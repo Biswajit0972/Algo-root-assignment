@@ -8,6 +8,7 @@ import Home from "../layouts/home/pages/Home";
 import Details from "../layouts/home/pages/Details";
 
 
+
 export {AuthLayout, Dashboard, Signin, Signup, Home, Details};
 
 

@@ -6,30 +6,15 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, signUpType } from "../../../zod";
 import Button from "../../../components/Button";
-import { useAlgoContext } from "../../../context/AuthContext";
-import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import { useAlgoContext } from "../../../hooks/UseAlgo";
 
 
 const Signup = () => {
-   const {isSuccess:{status, message},isFailed:{status:failed, message: remark},dispatch} = useAlgoContext();
-   
+  
    const navigate = useNavigate();
-
-
-   useEffect(() => {
-    if (status) {
-      toast.success(message);
-    }
-
-    if (failed) {
-      toast.error(remark);
-    }
-    
-    navigate("/");
-   }, [status, message, failed, remark, navigate]);
-   
+   const {dispatch,  state:{ isFailed}} = useAlgoContext()
   const {
     handleSubmit,
     register,
@@ -41,7 +26,13 @@ const Signup = () => {
 
   function handelSignUp(data: signUpType) {
     dispatch({ type: "Signup", payload: data });
-    // console.log(data);
+    if (isFailed.status) {
+      toast.error("User already exsit ! please login");
+      navigate("/");
+      return;
+    }
+    toast.success("user created!");
+    navigate("/");
   }
 
   return (
