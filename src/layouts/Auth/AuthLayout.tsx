@@ -6,7 +6,9 @@ const AuthLayout = () => {
     <div className="authLayout font-base bg-dark text-secondary flex-center">
       <div className="w-full h-full relative md:w-[80%] lg:w-1/2">
         <Outlet />
-        <ToastContainer
+       
+      </div>
+      <ToastContainer
           position="top-center"
           autoClose={5000}
           hideProgressBar={false}
@@ -19,7 +21,6 @@ const AuthLayout = () => {
           theme="light"
           transition={Bounce}
         />
-      </div>
     </div>
   );
 };
