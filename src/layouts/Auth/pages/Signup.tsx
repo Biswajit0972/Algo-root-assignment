@@ -6,8 +6,30 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, signUpType } from "../../../zod";
 import Button from "../../../components/Button";
+import { useAlgoContext } from "../../../context/AuthContext";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
+
 
 const Signup = () => {
+   const {isSuccess:{status, message},isFailed:{status:failed, message: remark},dispatch} = useAlgoContext();
+   
+   const navigate = useNavigate();
+
+
+   useEffect(() => {
+    if (status) {
+      toast.success(message);
+    }
+
+    if (failed) {
+      toast.error(remark);
+    }
+    
+    navigate("/");
+   }, [status, message, failed, remark, navigate]);
+   
   const {
     handleSubmit,
     register,
@@ -15,9 +37,11 @@ const Signup = () => {
   } = useForm<signUpType>({
     resolver: zodResolver(signUpSchema),
   });
+  
 
   function handelSignUp(data: signUpType) {
-    console.log(data);
+    dispatch({ type: "Signup", payload: data });
+    // console.log(data);
   }
 
   return (

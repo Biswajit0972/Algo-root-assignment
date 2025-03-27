@@ -6,8 +6,19 @@ import FormInput from "../../../components/FormInput";
 import FormError from "../../../components/FormError";
 import Button from "../../../components/Button";
 import AuthHeader from "../../../components/AuthHeader";
+import { useAlgoContext } from "../../../context/AuthContext";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const Signin = () => {
+  const {
+    isSuccess: { status, message },
+    isFailed: { status: failed, message: remark },
+    dispatch,
+  } = useAlgoContext();
+  const navigate = useNavigate();
+
   const {
     handleSubmit,
     register,
@@ -16,8 +27,22 @@ const Signin = () => {
     resolver: zodResolver(loginSchema),
   });
 
+  useEffect(() => {
+    if (status) {
+      navigate("/dashboard");
+    }
+
+    if (failed) {
+      if (remark === "register") {
+        toast.error("please register first");
+        navigate("/signup");
+      }
+      toast.error(remark);
+    }
+  }, [status, message, failed, remark, navigate]);
+
   function handelLogin(data: loginType) {
-    console.log(data);
+    dispatch({ type: "Login", payload: data });
   }
 
   return (
