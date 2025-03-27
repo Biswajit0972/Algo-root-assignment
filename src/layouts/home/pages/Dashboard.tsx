@@ -2,8 +2,11 @@ import { Outlet } from "react-router";
 import Navbar from "../../../components/Navbar";
 import Mobile from "../../../components/Mobile";
 import { Bounce, ToastContainer } from "react-toastify";
+import { useAuth } from "../../../hooks/AuthHook";
+import Protected from "../../../components/Protected";
 
 const Dashboard = () => {
+  useAuth()
   return (
     <div className="h-dvh w-full relative bg-dark md:grid md:grid-cols-5 md:grid-rows-12">
       <div className="bg-red w-full relative overflow-hidden md:col-span-5">
@@ -13,7 +16,9 @@ const Dashboard = () => {
         <Mobile />
       </div>
       <div className=" relative col-span-4 row-span-12 row-start-2 ">
+        <Protected>
         <Outlet />
+        </Protected>
       </div>
       <ToastContainer
         position="bottom-center"
