@@ -1,19 +1,15 @@
 import { useEffect, useState } from "react";
-import { getDetails } from "../../../utils/query/query";
-import CardList from "../../../components/CardList";
-import DetailsHeader from "../../../components/DetailsHeader";
 import { toast } from "react-toastify";
-import { myOptions } from "../../../types/td";
-import Button from "../../../components/Button";
-import Loading from "../../../components/Loading";
+import {
+  getDetails,
+  Button,
+  Loading,
+  DetailsHeader,
+  CardList,
+} from "../../../utils";
+import { myOptions, User } from "../../../types/td";
 
-type User = {
-  name: string;
-  age: number;
-  email: string;
-  city: string;
-  isActive: boolean;
-};
+
 
 const Details = () => {
   const [details, setDetails] = useState<User[]>([]);
