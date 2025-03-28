@@ -1,5 +1,5 @@
-import { FaSort } from "react-icons/fa6";
 import { Dispatch, FC, SetStateAction } from "react";
+import { FaSort } from "react-icons/fa6";
 import { myOptions, OPTIONTYPE } from "../types/td";
 import Options from "./Options";
 import FormInput from "./FormInput";
