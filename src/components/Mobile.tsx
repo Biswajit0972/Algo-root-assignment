@@ -8,7 +8,7 @@ const links = [
 
 const Mobile = () => {
     const {pathname} = useLocation();
-    const {dispatch} = useAlgoContext()
+    
   return (
     <div className="sidebar">
       <ul className="w-full relative flex-col py-5 px-3 gap-3">
@@ -16,7 +16,7 @@ const Mobile = () => {
           <li
             key={id}
             className={`h-12  w-full text-center py-2 rounded-md text-xl font-bold ${pathname === link? "bg-org": "bg-red text-secondary"}`}
-            onClick={() => {dispatch({type:"ToogleSidebar"})}}
+           
           >
             <NavLink to={link} className="h-full w-full flex-center">
               {lable}
