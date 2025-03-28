@@ -1,13 +1,6 @@
 import { FC } from "react";
 import Card from "./Card";
-
-type User = {
-    name: string;
-    age: number;
-    email: string;
-    city: string;
-    isActive: boolean;
-};
+import  {User} from "../types/td"
 
 const CardList: FC<{ users: User[] }> = ({ users }) => {
     return (
