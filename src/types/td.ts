@@ -23,3 +23,11 @@ export type myOptions = {
     order: number | string,
     type:  "name" | "age" | "isActive" | ""
 }
+
+export type User = {
+  name: string;
+  age: number;
+  email: string;
+  city: string;
+  isActive: boolean;
+};

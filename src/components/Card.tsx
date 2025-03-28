@@ -1,10 +1,4 @@
-type User = {
-  name: string;
-  age: number;
-  email: string;
-  city: string;
-  isActive: boolean;
-};
+import  {User} from "../types/td"
 
 const Card = ({ user }: { user: User }) => {
   return (
