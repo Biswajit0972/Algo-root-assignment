@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 import { loginSchema, loginType } from "../../../zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormError, Form, FormInput, AuthHeader } from "../../../utils";
+import { FormError, Form, FormInput, AuthHeader, Button } from "../../../utils";
 import { useAlgoContext } from "../../../hooks/UseAlgo";
 
 
