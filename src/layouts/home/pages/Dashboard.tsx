@@ -1,8 +1,7 @@
 import { Outlet } from "react-router";
-import Navbar from "../../../components/Navbar";
-import Mobile from "../../../components/Mobile";
+import { Navbar, Mobile,Dropdown } from "../../../utils";
 import { useAlgoContext } from "../../../hooks/UseAlgo";
-import Dropdown from "../../../components/Dropdown";
+
 
 
 const Dashboard = () => {
