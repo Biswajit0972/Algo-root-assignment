@@ -9,3 +9,17 @@ export interface State {
     dispatch: Dispatch<Action>,
 }
 
+export type OPTIONTYPE = {
+    value: string | number ,
+    lable: string ,
+}
+
+export type multiDropDown = {
+  id: string | number,
+  value: OPTIONTYPE[];
+}
+
+export type myOptions = {
+    order: number | string,
+    type:  "name" | "age" | "isActive" | ""
+}

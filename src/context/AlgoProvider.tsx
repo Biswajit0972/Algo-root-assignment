@@ -8,9 +8,7 @@ function reducer(state: STATE, action: ACTION) {
         case "ToogleSidebar":
             return { ...state, sidebar: !state.sidebar };
         case "Login": {
-
             if (!state.isUser?.email) {
-              
                 return {
                     ...state,
                     isAuth: false,
@@ -28,35 +26,47 @@ function reducer(state: STATE, action: ACTION) {
                 };
             }
 
-
             return {
                 ...state,
-                isAuth: true,
-                isFailed: { status: true, message: "invalid creadentials" },
+                isAuth: false,
+                isFailed: { status: true, message: "invalid credentials" }, // Fixed typo
                 isSuccess: { status: false, message: "" }
             };
-
         }
+
         case "Logout": {
             localStorage.setItem("isAuth", "false");
-            return {...state,  isAuth: false};
+            return {
+                ...state,
+                isAuth: false,
+                isFailed: { status: false, message: "" },
+                isSuccess: { status: true, message: "User logged out!" } // Added logout message
+            };
         }
+
         case "Signup": {
-            if (state.isUser.email) {
+            if (state.isUser?.email) { // Fixed undefined check
                 return {
                     ...state,
-                    isFalied: { status: true, message: "invalid creadentials" },
+                    isFailed: { status: true, message: "User already exists" }, // Fixed typo and better message
                     isSuccess: { status: false, message: "" }
-                }
+                };
             }
+
             localStorage.setItem("isUser", JSON.stringify(action.payload));
             return {
                 ...state,
-                isFalied: { status: false, message: "" },
-                isSuccess: { status: true, message: "user created!" },
+                isFailed: { status: false, message: "" }, // Fixed typo
+                isSuccess: { status: true, message: "User created!" },
                 isUser: action.payload,
-            }
+            };
         }
+
+        case "Reset": {
+            localStorage.clear();
+            return actualState; // Correctly resetting to initial state
+        }
+
         default:
             return state;
     }

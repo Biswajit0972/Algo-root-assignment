@@ -6,7 +6,8 @@ export type ACTION =
   | { type: "Logout" }
   | { type: "Signup"; payload: signUpType }
   | { type: "ToogleSidebar" }
-  | { type: "ToggleDropdown" };
+  | { type: "ToggleDropdown" }
+  | {type : "Reset"};
 
 interface REMARK {
   status: boolean;

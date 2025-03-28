@@ -42,7 +42,7 @@
   }
 
   .flex-col {
-    @apply flex flex-col;
+    @apply flex flex-col ;
   }
 
   .flex-between {

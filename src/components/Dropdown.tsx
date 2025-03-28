@@ -1,15 +1,21 @@
 import { useNavigate } from "react-router";
 import { useAlgoContext } from "../hooks/UseAlgo";
 import Button from "./Button";
+import { toast } from "react-toastify";
 
 const Dropdown = () => {
-  const {dispatch, state:{isUser}} =  useAlgoContext();
-  const navigate = useNavigate()
-  function handelDelete() {}
+  const { dispatch, state: { isUser } } = useAlgoContext();
+  const navigate = useNavigate();
+  
+  function handelDelete() {
+    dispatch({type:"Reset"})
+    toast.success("User deleted");
+    navigate("/signup")
+  }
 
   function handelLogOut() {
-    dispatch({type:  "Logout"});
-    dispatch({type: "ToggleDropdown"});
+    dispatch({ type: "Logout" });
+    dispatch({ type: "ToggleDropdown" });
     navigate("/")
   }
 

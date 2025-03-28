@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 const Signin = () => {
 
   const navigate = useNavigate();
-  const { dispatch, state: { isFailed } } = useAlgoContext()
+  const { dispatch, state: { isFailed,  isSuccess } } = useAlgoContext()
   const {
     handleSubmit,
     register,
@@ -26,18 +26,25 @@ const Signin = () => {
 
   function handelLogin(data: loginType) {
     dispatch({ type: "Login", payload: data });
-
+    
     if (isFailed.status) {
+
       if (isFailed.message === "register") {
         toast.error("Please register first");
         navigate("/signup");
         return;
       }
+
       toast.error(isFailed.message)
       return;
     }
-    console.log("call");
-    navigate("/dashboard");
+
+    
+    if (isSuccess.status)  {
+      toast.success("user login");
+      navigate("/dashboard");
+    }
+   
   }
 
   return (
