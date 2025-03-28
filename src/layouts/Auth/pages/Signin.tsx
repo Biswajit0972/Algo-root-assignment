@@ -1,14 +1,11 @@
 import { useForm } from "react-hook-form";
-import Form from "../../../components/Form";
-import { loginSchema, loginType } from "../../../zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import FormInput from "../../../components/FormInput";
-import FormError from "../../../components/FormError";
-import Button from "../../../components/Button";
-import AuthHeader from "../../../components/AuthHeader";
-import { useAlgoContext } from "../../../hooks/UseAlgo";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+
+import { loginSchema, loginType } from "../../../zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormError, Form, FormInput, AuthHeader } from "../../../utils";
+import { useAlgoContext } from "../../../hooks/UseAlgo";
 
 
 const Signin = () => {

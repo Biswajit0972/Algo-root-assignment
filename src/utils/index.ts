@@ -17,6 +17,10 @@ import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
 import Mobile from "../components/Mobile";
 import Dropdown from "../components/Dropdown";
-export {AuthLayout, Dashboard, Signin, Signup, Home, Details, getDetails, CardList, DetailsHeader, Button,Loading, Navbar, Mobile, Dropdown};
+import FormError from "../components/FormError";
+import FormInput from "../components/FormInput";
+import Form from "../components/Form";
+import AuthHeader from "../components/AuthHeader";
+export {AuthLayout, Dashboard, Signin, Signup, Home, Details, getDetails, CardList, DetailsHeader, Button,Loading, Navbar, Mobile, Dropdown, FormError, FormInput, Form, AuthHeader};
 
 
