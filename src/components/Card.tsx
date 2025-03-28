@@ -23,7 +23,7 @@ const Card = ({ user }: { user: User }) => {
         <p className="text-gray-600 lg:text-lg ">Age: {user.age}</p>
       </div>
       <div className="h-full w-full flex-center col-start-5 col-span-2 overflow-auto">
-        <p className="text-gray-600">{user.city}</p>
+        <p className="text-gray-600 text-[15px]">{user.city}</p>
       </div>
       <div className="h-full w-full hidden md:hidden  lg:block lg:flex-center col-start-7 col-span-2">
         <p className="text-gray-500 text-sm">{user.email}</p>

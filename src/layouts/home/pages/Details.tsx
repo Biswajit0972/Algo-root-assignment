@@ -5,6 +5,7 @@ import DetailsHeader from "../../../components/DetailsHeader";
 import { toast } from "react-toastify";
 import { myOptions } from "../../../types/td";
 import Button from "../../../components/Button";
+import Loading from "../../../components/Loading";
 
 type User = {
   name: string;
@@ -23,10 +24,14 @@ const Details = () => {
     type: "",
   });
 
+  const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
+    setLoading(true);
+
     async function getInfo() {
       const res = await getDetails(page);
       setDetails(res.data);
+      setLoading(false);
     }
     getInfo();
   }, [page]);
@@ -87,8 +92,7 @@ const Details = () => {
     );
     setSearchResult(fliteredItem);
   }
-  
-  console.log(page);
+
   return (
     <div className="relative h-full w-full font-base font-white ">
       <DetailsHeader
@@ -98,14 +102,28 @@ const Details = () => {
       />
       <div className="overflow-x-hidden w-full relative h-[calc(100%-48px)] flex">
         <div className=" absolute h-36 w-20  z-10 bottom-3.5 right-1.5 flex-col items-center gap-3">
-          <Button className="h-15 w-15 rounded-full text-2xl" variant="style" onClick={() => setPage(page + 1)}>
+          <Button
+            className="h-15 w-15 rounded-full text-2xl"
+            variant="style"
+            onClick={() => setPage(page + 1)}
+          >
             +
           </Button>
-          <Button className="h-15 w-15 rounded-full text-2xl" variant="danger" onClick={() => setPage(page - 1)}>
+          <Button
+            className="h-15 w-15 rounded-full text-2xl"
+            variant="danger"
+            onClick={() => setPage(page - 1)}
+          >
             -
           </Button>
         </div>
-        <CardList users={searchResult.length > 0 ? searchResult : details} />
+        {loading ? (
+          <div className="h-full w-full flex-center">
+            <Loading />
+          </div>
+        ) : (
+          <CardList users={searchResult.length > 0 ? searchResult : details} />
+        )}
       </div>
     </div>
   );

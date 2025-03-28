@@ -11,7 +11,7 @@ type User = {
 
 const CardList: FC<{ users: User[] }> = ({ users }) => {
     return (
-        <div className="px-5 py-2 relative h-full w-full overflow-x-hidden overflow-y-auto">
+        <div className="px-2 py-2 relative h-full w-full overflow-x-hidden overflow-y-auto">
             {users.map((user) => (
                 <Card key={user.email} user={user} />
             ))}

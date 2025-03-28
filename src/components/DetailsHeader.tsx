@@ -37,9 +37,9 @@ const DetailsHeader: FC<{
   
 
   return (
-    <div className="w-full h-12 bg-gray-500 px-5">
-      <div className="h-full w-full  relative flex-only gap-2">
-        <div className="relative h-full w-[52%] sm:w-[20%] py-2 overflow-hidden px-2 flex-between ">
+    <div className="w-full h-12 bg-gray-500 px-2">
+      <div className="h-full w-full  relative flex-only gap-5">
+        <div className="relative h-full w-[60%] sm:w-[20%] py-2 overflow-hidden px-2 flex-between ">
           <Options
             sortOrder={orderType}
             sortyType={sortBased}
@@ -52,7 +52,7 @@ const DetailsHeader: FC<{
             className="text-secondary cursor-pointer"
           />
         </div>
-        <div className="h-full w-[calc(100%-52%)] flex-center">
+        <div className="h-full w-[calc(100%-65%)] flex-center">
           <FormInput className="w-full text-secondary" inputSize="medium" onChange={(e) => searchUser(e.target.value)}/>
         </div>
       </div>
